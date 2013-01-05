@@ -6,12 +6,14 @@
     <head>
         <meta charset="utf-8">
         <title>Carl DeTorres Graphic Design</title>
+
+        <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
 
         <section>
-            hello default layout.
+            hello default layout. with resources?
         </section>
         <tiles:insertAttribute name="body" ignore="true" />
 
