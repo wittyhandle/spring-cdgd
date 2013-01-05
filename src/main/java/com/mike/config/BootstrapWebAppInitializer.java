@@ -1,5 +1,6 @@
 package com.mike.config;
 
+import com.tacitknowledge.util.migration.jdbc.WebAppMigrationLauncher;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -30,9 +31,14 @@ public class BootstrapWebAppInitializer implements WebApplicationInitializer
 
         servletContext.addListener(new ContextLoaderListener(context));
 
+
+        servletContext.setInitParameter("migration.systemname", "carl");
+        servletContext.addListener(new WebAppMigrationLauncher());
+
         ServletRegistration.Dynamic appServlet = servletContext.addServlet("appServlet",
                 new DispatcherServlet(context));
 
+        appServlet.setInitParameter("foo", "bar");
         appServlet.setLoadOnStartup(1);
         Set<String> conflicts = appServlet.addMapping("/");
 
