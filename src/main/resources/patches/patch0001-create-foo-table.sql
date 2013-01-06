@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `foo` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(100) NOT NULL,
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
