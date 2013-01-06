@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.mike.controller")
+@ComponentScan({"com.mike.controller", "com.mike.service", "com.mike.dao"})
 public class WebConfig extends WebMvcConfigurerAdapter
 {
     @Bean
