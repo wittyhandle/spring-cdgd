@@ -4,11 +4,11 @@ import com.tacitknowledge.util.migration.jdbc.WebAppMigrationLauncher;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+import javax.servlet.*;
+import java.util.EnumSet;
 import java.util.Set;
 
 /**
@@ -28,6 +28,9 @@ public class BootstrapWebAppInitializer implements WebApplicationInitializer
         // A web context implementation that gets its configurations through annotations
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.scan("com.mike.config");
+
+        FilterRegistration.Dynamic securityFilter = servletContext.addFilter("securityFilter", new DelegatingFilterProxy("springSecurityFilterChain"));
+        securityFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
         servletContext.addListener(new ContextLoaderListener(context));
 
