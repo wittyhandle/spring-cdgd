@@ -7,8 +7,14 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
+import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.servlet.mvc.UrlFilenameViewController;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Provides java-based web configurations to the project
@@ -37,6 +43,24 @@ public class WebConfig extends WebMvcConfigurerAdapter
         tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/layouts/layouts.xml", "/WEB-INF/views/**/views.xml"});
 
         return tilesConfigurer;
+    }
+
+    /**
+     * Use a UrlFilenameViewController to map a simple login url to the appropriate view
+     *
+     * @return an instance of a configured SimpleUrlHandlerMapping
+     */
+    @Bean
+    public SimpleUrlHandlerMapping simpleUrlHandlerMapping()
+    {
+        SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
+
+        Map<String, Controller> maps = new HashMap<String, Controller>();
+        maps.put("/login", new UrlFilenameViewController());
+
+        mapping.setUrlMap(maps);
+
+        return mapping;
     }
 
     @Override
