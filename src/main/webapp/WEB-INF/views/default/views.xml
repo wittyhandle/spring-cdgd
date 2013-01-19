@@ -11,6 +11,7 @@
 
     <definition name="login" extends="default">
         <put-attribute name="body" value="login.body"/>
+        <put-attribute name="addBootstrap" value="true" type="string" />
     </definition>
 
     <definition name="homepage.body" template="/WEB-INF/layouts/home-body.jsp">
