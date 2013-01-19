@@ -13,7 +13,7 @@
     <body>
 
         <section>
-            hello default layout. with resources?
+            hello default layout
         </section>
         <tiles:insertAttribute name="body" ignore="true" />
 

@@ -6,6 +6,4 @@
 <tiles-definitions>
     <definition name="default" template="/WEB-INF/layouts/default.jsp">
     </definition>
-    <definition name="login" template="/WEB-INF/layouts/login.jsp">
-    </definition>
 </tiles-definitions>

@@ -4,7 +4,22 @@
         "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
+
     <definition name="index" extends="default">
-        <put-attribute name="body" value="/WEB-INF/views/default/index.jsp"></put-attribute>
+        <put-attribute name="body" value="homepage.body"/>
     </definition>
+
+    <definition name="login" extends="default">
+        <put-attribute name="body" value="login.body"/>
+    </definition>
+
+    <definition name="homepage.body" template="/WEB-INF/layouts/home-body.jsp">
+        <put-attribute name="slides" value="/WEB-INF/views/home/slides.jsp" />
+        <put-attribute name="touts" value="/WEB-INF/views/home/touts.jsp" />
+    </definition>
+
+    <definition name="login.body" template="/WEB-INF/layouts/login-body.jsp">
+        <put-attribute name="body" value="/WEB-INF/views/login/body.jsp" />
+    </definition>
+
 </tiles-definitions>
