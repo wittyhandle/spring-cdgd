@@ -55,8 +55,11 @@ public class WebConfig extends WebMvcConfigurerAdapter
     {
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
 
+        UrlFilenameViewController urlFilenameViewController = new UrlFilenameViewController();
+
         Map<String, Controller> maps = new HashMap<String, Controller>();
-        maps.put("/login", new UrlFilenameViewController());
+        maps.put("/login", urlFilenameViewController);
+        maps.put("/admin", urlFilenameViewController);
 
         mapping.setUrlMap(maps);
 

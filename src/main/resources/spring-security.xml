@@ -9,8 +9,8 @@
     <http pattern="/css/**" security="none"/>
 
     <http auto-config='true'>
-        <intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" method="GET" />
-        <intercept-url pattern="/**" access="ROLE_USER" />
+        <!--<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" method="GET" />-->
+        <intercept-url pattern="/admin" access="ROLE_USER" />
         <form-login login-page='/login'/>
     </http>
 
