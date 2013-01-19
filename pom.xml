@@ -20,6 +20,12 @@
         <org.apache.tiles-version>3.0.1</org.apache.tiles-version>
         <tomcat.username>tomcat</tomcat.username>
         <tomcat.password>tomcat</tomcat.password>
+        <scp.user>root</scp.user>
+        <scp.password>vagrant</scp.password>
+        <scp.host>127.0.0.1</scp.host>
+        <scp.port>2222</scp.port>
+        <scp.dirCopyTo>/var/www/cdgd</scp.dirCopyTo>
+        <maven.tomcat.update>true</maven.tomcat.update>
     </properties>
     <repositories>
         <repository>
@@ -193,6 +199,54 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>web</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-installer</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <tasks>
+                                        <scp todir="${scp.user}:${scp.password}@${scp.host}:/${scp.dirCopyTo}" port="${scp.port}" trust="true" failonerror="false">
+                                            <fileset dir="src/main/webapp/resources">
+                                                <include name="**/*"/>
+                                            </fileset>
+                                        </scp>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.ant</groupId>
+                                <artifactId>ant-jsch</artifactId>
+                                <version>1.8.4</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>com.jcraft</groupId>
+                                <artifactId>jsch</artifactId>
+                                <version>0.1.49</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <plugins> 
             <plugin>
@@ -220,19 +274,19 @@
                     <ignoreWebxml>false</ignoreWebxml>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>sources</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-dependency-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>install</id>-->
+                        <!--<phase>install</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>sources</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
