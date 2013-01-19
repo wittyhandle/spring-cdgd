@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>Carl DeTorres Graphic Design</title>
 
-        <link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/css/styles.css" context="/" />" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
