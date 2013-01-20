@@ -8,6 +8,7 @@
 
     <http pattern="/css/**" security="none"/>
     <http pattern="/bootstrap/**" security="none"/>
+    <http pattern="/images/**" security="none"/>
 
     <http auto-config='true'>
         <intercept-url pattern="/admin/**" access="ROLE_USER" />
