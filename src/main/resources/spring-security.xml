@@ -12,7 +12,7 @@
 
     <http auto-config='true'>
         <intercept-url pattern="/admin/**" access="ROLE_USER" />
-        <form-login login-page='/login'/>
+        <form-login login-page="/login" default-target-url="/admin" />
     </http>
 
     <authentication-manager>
