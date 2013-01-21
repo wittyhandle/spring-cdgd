@@ -4,6 +4,7 @@ import com.mike.dao.FooDao;
 import com.mike.domain.Foo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * The foo service.
@@ -19,6 +20,7 @@ public class FooServiceImpl implements FooService
     private FooDao fooDao;
 
     @Override
+    @Transactional(readOnly = true)
     public Foo getFooById(long id)
     {
         return fooDao.findById(id);

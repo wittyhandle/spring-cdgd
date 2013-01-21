@@ -3,7 +3,6 @@ package com.mike.dao;
 import com.mike.domain.Foo;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -18,7 +17,6 @@ import javax.persistence.PersistenceContext;
  */
 @Repository
 @Service
-@Transactional(readOnly = true)
 public class FooDao
 {
     @PersistenceContext
