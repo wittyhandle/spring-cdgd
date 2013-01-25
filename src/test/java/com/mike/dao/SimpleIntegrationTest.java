@@ -1,8 +1,6 @@
-package com.mike.integration;
+package com.mike.dao;
 
 import com.mike.config.PersistenceConfig;
-import com.mike.config.WebConfig;
-import com.mike.dao.FooDao;
 import com.mike.domain.Foo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +14,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
 
@@ -44,6 +41,13 @@ public class SimpleIntegrationTest
     {
         Foo foo = fooDao.findById(0);
         assertEquals("frank", foo.getName());
+    }
+
+    @Test
+    public void testNoFoo() throws Exception
+    {
+        Foo foo = fooDao.findById(10);
+        assertNull(foo);
     }
 
     @Configuration

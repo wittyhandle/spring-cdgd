@@ -244,6 +244,70 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>integration-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <excludes>
+                                <exclude>none</exclude>
+                            </excludes>
+                            <includes>
+                                <include>**/*IntegrationTest.java</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <version>2.5.2</version>
+                        <configuration>
+                            <formats>
+                                <format>html</format>
+                            </formats>
+                            <instrumentation>
+                                <excludes>
+                                    <exclude>none</exclude>
+                                </excludes>
+                                <includes>
+                                    <include>**/dao/**</include>
+                                </includes>
+                            </instrumentation>
+                            <skip>${maven.test.skip}</skip>
+                            <check>
+                                <branchRate>10</branchRate>
+                                <lineRate>10</lineRate>
+                                <haltOnFailure>true</haltOnFailure>
+                                <totalBranchRate>10</totalBranchRate>
+                                <totalLineRate>10</totalLineRate>
+                                <packageLineRate>10</packageLineRate>
+                                <packageBranchRate>10</packageBranchRate>
+                            </check>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>instrument</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>cobertura</goal>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     <build>
         <plugins>
@@ -281,6 +345,15 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*IntegrationTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.5.2</version>
@@ -291,18 +364,18 @@
                     <instrumentation>
                         <excludes>
                             <exclude>com/mike/config/**/*.class</exclude>
+                            <exclude>com/mike/dao/**/*.class</exclude>
                         </excludes>
                     </instrumentation>
                     <skip>${maven.test.skip}</skip>
                     <check>
-                        <!--<haltOnFailure>false</haltOnFailure>-->
-                        <branchRate>10</branchRate>
-                        <lineRate>10</lineRate>
+                        <branchRate>0</branchRate>
+                        <lineRate>0</lineRate>
                         <haltOnFailure>true</haltOnFailure>
-                        <totalBranchRate>10</totalBranchRate>
-                        <totalLineRate>10</totalLineRate>
-                        <packageLineRate>10</packageLineRate>
-                        <packageBranchRate>10</packageBranchRate>
+                        <totalBranchRate>0</totalBranchRate>
+                        <totalLineRate>0</totalLineRate>
+                        <packageLineRate>0</packageLineRate>
+                        <packageBranchRate>0</packageBranchRate>
                     </check>
                 </configuration>
                 <executions>
@@ -317,7 +390,6 @@
                         <id>instrument</id>
                         <phase>package</phase>
                         <goals>
-                            <!--<goal>instrument</goal>-->
                             <goal>cobertura</goal>
                             <goal>check</goal>
                         </goals>
