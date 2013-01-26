@@ -11,15 +11,15 @@
     <http pattern="/images/**" security="none"/>
 
     <http auto-config='true'>
-        <intercept-url pattern="/admin/**" access="ROLE_USER" />
+        <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
         <form-login login-page="/login" default-target-url="/admin" />
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="mike" authorities="ROLE_USER" password="test"/>
-            </user-service>
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder hash="md5">
+                <salt-source user-property="username"/>
+            </password-encoder>
         </authentication-provider>
     </authentication-manager>
 
