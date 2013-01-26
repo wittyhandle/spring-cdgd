@@ -13,9 +13,8 @@
     </head>
 
     <body>
-
+        <tiles:insertAttribute name="head" ignore="true" />
         <tiles:insertAttribute name="body" ignore="true" />
-
     </body>
 
 </html>
