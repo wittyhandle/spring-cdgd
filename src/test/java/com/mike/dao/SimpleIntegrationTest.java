@@ -2,6 +2,7 @@ package com.mike.dao;
 
 import com.mike.config.PersistenceConfig;
 import com.mike.domain.Foo;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ import static org.junit.Assert.assertNull;
  * Time: 1:55 PM
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {SimpleIntegrationTest.ContextConfiguration.class})
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class)
 public class SimpleIntegrationTest
 {
 
