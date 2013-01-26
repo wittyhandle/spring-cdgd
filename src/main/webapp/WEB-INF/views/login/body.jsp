@@ -7,17 +7,17 @@
     <div class="login-banner">
         <img src="<c:url value="/images/logo.png" context="/" />" style="width: 74px;height: 37px" alt="CDGD Login" />
     </div>
-    <form class="form-horizontal login">
+    <form class="form-horizontal login" action="<c:url value="j_spring_security_check" />" method="post">
         <div class="control-group">
             <label class="control-label" for="inputUsername">Username</label>
             <div class="controls">
-                <input type="text" id="inputUsername" placeholder="Username">
+                <input type="text" id="inputUsername" name="j_username" placeholder="Username">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="inputPassword">Password</label>
             <div class="controls">
-                <input type="password" id="inputPassword" placeholder="Password">
+                <input type="password" id="inputPassword" name="j_password" placeholder="Password">
             </div>
         </div>
         <div class="control-group">
