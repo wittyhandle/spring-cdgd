@@ -43,13 +43,6 @@ public class UserDetailServiceImplTest
     }
 
     @Test
-    public void testLoadUserByUsername() throws Exception
-    {
-        UserDetails userDetails = userDetailService.loadUserByUsername("fred");
-        assertNull(userDetails);
-    }
-
-    @Test
     public void testEncodePassword() throws Exception
     {
         String encoded = passwordEncoder.encodePassword("Lawrence", "mike");
