@@ -5,14 +5,33 @@
     margin-top: -105px;
     margin-left: -200px;
     width: 400px;
-    height: 210px;
+    /*height: 275px;*/
     border: 1px solid #eee;
-    padding: 20px;
     border-radius: 8px;
+}
+
+.login-fields {
+    padding: 20px 20px 0;
 }
 
 .login-banner {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
     padding-bottom: 20px;
+}
+
+#login-container .form-horizontal .control-label {
+    width: 60px;
+}
+
+#login-container .form-horizontal .controls {
+    margin-left: 140px;
+}
+
+#login-container .alert {
+    margin-bottom: 0;
+    border-radius: 8px;
+    width: 350px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
