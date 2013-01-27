@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created with IntelliJ IDEA.
+ * The controller for management of projects within the admin space.
  * <p/>
  * User: mike
  * Date: 1/26/13
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminHomeController extends BaseAdminController
+public class AdminProjectController extends BaseAdminController
 {
-    private static final Logger log = LoggerFactory.getLogger(AdminHomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(AdminProjectController.class);
 
     @RequestMapping("home")
     public String listProjects()

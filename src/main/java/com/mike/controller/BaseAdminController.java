@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.util.Collection;
+import java.security.Principal;
 
 /**
  * Controllers within the admin section extend this to leverage functionality for retrieving the currently logged in
@@ -20,10 +20,16 @@ public class BaseAdminController
 {
     private static final Logger log = LoggerFactory.getLogger(BaseAdminController.class);
 
+    /**
+     * Have spring call for the username and store is as a model attribute. Spring will also pass in the current
+     * Principal object from which the username is determined.
+     *
+     * @param principal contains the current username
+     * @return the current username
+     */
     @ModelAttribute("username")
-    public String retrieveUsername()
+    public String retrieveUsername(Principal principal)
     {
-        log.debug("The retrieveUsername method was called, returning 'freddy' for now.");
-        return "freddy";
+        return principal.getName();
     }
 }
