@@ -13,6 +13,7 @@
     <http auto-config='true'>
         <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
         <form-login login-page="/login" default-target-url="/admin/home" />
+        <logout logout-success-url="/carl" />
     </http>
 
     <authentication-manager>
