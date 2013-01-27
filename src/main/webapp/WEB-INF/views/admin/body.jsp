@@ -8,17 +8,17 @@
         </div>
         <div class="row-fluid">
             <table class="table table-striped">
-                    <thead>
-                      <tr>
+                <thead>
+                    <tr>
                         <th>Title</th>
                         <th>Copy</th>
                         <th>Category</th>
                         <th>Client</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
         <hr />
     </div>
