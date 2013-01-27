@@ -6,7 +6,7 @@
 					<li class="active"><a href="#">Works</a></li>
 					<li><a href="#touts">Touts</a></li>
 				</ul>
-				<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+				<p class="navbar-text pull-right">Logged in as ${username}</p>
 			</div>
 		</div>
 	</div>

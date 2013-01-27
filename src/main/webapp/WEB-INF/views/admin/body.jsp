@@ -1,10 +1,10 @@
 <div class="container">
     <div class="span12">
         <div class="leaderboard">
-            <span style="float: left">
+            <span class="pull-left">
                 <h1>Works</h1>
             </span>
-            <a href="#" style="float: right;margin-top: 18px" class="btn btn-success btn-mini"><i class="icon-white icon-plus"></i> New Work</a>
+            <a href="#" class="btn btn-success btn-mini pull-right new-asset"><i class="icon-white icon-plus"></i> New Work</a>
         </div>
         <div class="row-fluid">
             <table class="table table-striped">
