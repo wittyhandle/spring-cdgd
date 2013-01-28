@@ -7,9 +7,9 @@
         <meta charset="utf-8">
         <title>Carl DeTorres Graphic Design - Administration</title>
 
-        <link href="<c:url value="/bootstrap/css/bootstrap.css" context="/" />" rel="stylesheet" type="text/css" />
-        <link href="<c:url value="/bootstrap/css/bootstrap-layout.css" context="/" />" rel="stylesheet" type="text/css" />
-        <link href="<c:url value="/css/admin.css" context="/" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/bootstrap/css/bootstrap.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/bootstrap/css/bootstrap-layout.css" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/css/admin.css" />" rel="stylesheet" type="text/css" />
     </head>
 
     <body>

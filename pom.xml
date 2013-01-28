@@ -317,6 +317,7 @@
                 <version>2.0</version>
                 <configuration>
                     <contextReloadable>true</contextReloadable>
+                    <path>/</path>
                 </configuration>
             </plugin>
             <plugin>

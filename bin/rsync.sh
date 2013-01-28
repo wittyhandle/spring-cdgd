@@ -1,7 +1,7 @@
 #!/bin/sh
 
 web_home="/var/www/cdgd"
-jee_home="/usr/share/tomcat/webapps/carl"
+jee_home="/usr/share/tomcat/webapps/ROOT"
 local_statics="${PWD}/src/main/webapp/resources"
 local_jsps="${PWD}/src/main/webapp/WEB-INF"
 statics="$web_home/resources"

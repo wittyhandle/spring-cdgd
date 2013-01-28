@@ -5,7 +5,7 @@
 <div id="login-container">
     <div class="login-fields">
         <div class="login-banner">
-            <img src="<c:url value="/images/logo.png" context="/" />" style="width: 74px;height: 37px" alt="CDGD Login" />
+            <img src="<c:url value="/images/logo.png" />" style="width: 74px;height: 37px" alt="CDGD Login" />
         </div>
         <form class="form-horizontal login" action="<c:url value="j_spring_security_check" />" method="post">
             <div class="control-group">

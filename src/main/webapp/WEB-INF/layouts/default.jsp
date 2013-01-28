@@ -10,10 +10,10 @@
         <title>Carl DeTorres Graphic Design</title>
         <tilesx:useAttribute name="addBootstrap" />
         <c:if test="${addBootstrap == 'true'}">
-            <link href="<c:url value="/bootstrap/css/bootstrap.css" context="/" />" rel="stylesheet" type="text/css" />
-            <link href="<c:url value="/bootstrap/css/bootstrap-responsive.css" context="/" />" rel="stylesheet" type="text/css" />
+            <link href="<c:url value="/bootstrap/css/bootstrap.css" />" rel="stylesheet" type="text/css" />
+            <link href="<c:url value="/bootstrap/css/bootstrap-responsive.css" />" rel="stylesheet" type="text/css" />
         </c:if>
-        <link href="<c:url value="/css/styles.css" context="/" />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value="/css/styles.css" />" rel="stylesheet" type="text/css" />
     </head>
 
     <body>

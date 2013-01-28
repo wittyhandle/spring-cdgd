@@ -10,7 +10,7 @@
 					<li class="active"><a href="#">Works</a></li>
 					<li><a href="#touts">Touts</a></li>
 				</ul>
-				<p class="navbar-text pull-right">${username}, <a href="<c:url value="/j_spring_security_logout" context="/carl" />">logout.</a></p>
+				<p class="navbar-text pull-right">${username}, <a href="<c:url value="/j_spring_security_logout" />">logout.</a></p>
 			</div>
 		</div>
 	</div>
