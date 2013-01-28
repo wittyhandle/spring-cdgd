@@ -13,17 +13,17 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Test the, ahem, testController.
+ * Test the indexController.
  * <p/>
  * User: mike
  * Date: 1/20/13
  * Time: 9:09 AM
  */
 @RunWith(MockitoJUnitRunner.class)
-public class TestControllerTest
+public class IndexControllerTest
 {
     @InjectMocks
-    private TestController testController = new TestController();
+    private IndexController indexController = new IndexController();
 
     @Mock
     private FooService fooService;
@@ -39,7 +39,7 @@ public class TestControllerTest
         MockHttpServletRequest request = new MockHttpServletRequest();
         request.setParameter("id", "0");
 
-        testController.test(request);
+        indexController.test(request);
 
         verify(fooService).getFooById(0L);
     }

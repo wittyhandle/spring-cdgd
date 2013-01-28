@@ -11,32 +11,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class TestController
+public class IndexController
 {
-    private static final Logger log = LoggerFactory.getLogger(TestController.class);
+    private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
     private FooService fooService;
 
-    @RequestMapping("/carl")
+    @RequestMapping("/")
     public String test(HttpServletRequest request)
     {
         String idStr = request.getParameter("id");
-        long id =Long.parseLong(idStr);
 
-        log.debug("Looking for foo with id {}", id);
-
-        Foo foo = fooService.getFooById(id);
-
-        if (foo == null)
+        if (idStr != null)
         {
-            log.debug("The foo is null");
-        }
-        else
-        {
-            log.debug("Found foo {}", foo.getName());
-        }
+            long id = Long.parseLong(idStr);
 
+            log.debug("Looking for foo with id {}", id);
+
+            Foo foo = fooService.getFooById(id);
+
+            if (foo == null)
+            {
+                log.debug("The foo is null");
+            }
+            else
+            {
+                log.debug("Found foo {}", foo.getName());
+            }
+        }
 
         return "index";
     }
