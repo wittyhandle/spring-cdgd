@@ -18,6 +18,8 @@
 
     <body>
         <tiles:insertAttribute name="body" ignore="true" />
+
+        <script src="<c:url value="/js/jquery-1.9.0.min.js" />"></script>
     </body>
 
 </html>
