@@ -6,10 +6,15 @@
 <tiles-definitions>
     <definition name="default" template="/WEB-INF/layouts/default.jsp">
         <put-attribute name="addBootstrap" value="false" type="string" />
+        <put-attribute name="jquery" value="/js/jquery-1.9.0.min.js" />
+        <put-attribute name="css" value="/css/styles.css" />
+        <put-attribute name="scriptblock" value="/WEB-INF/views/block.jsp" />
     </definition>
 
-    <definition name="admin" template="/WEB-INF/layouts/admin.jsp">
+    <definition name="admin" extends="default">
         <put-attribute name="head" value="/WEB-INF/views/admin/head.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/admin/body.jsp" />
+        <put-attribute name="css" value="/css/admin.css" />
+        <put-attribute name="addBootstrap" value="true" type="string" />
     </definition>
 </tiles-definitions>

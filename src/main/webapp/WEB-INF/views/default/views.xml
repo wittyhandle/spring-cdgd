@@ -12,14 +12,15 @@
     <definition name="login" extends="default">
         <put-attribute name="body" value="login.body"/>
         <put-attribute name="addBootstrap" value="true" type="string" />
+        <put-attribute name="scriptblock" value="/WEB-INF/views/login/block.jsp" />
     </definition>
 
-    <definition name="homepage.body" template="/WEB-INF/layouts/home-body.jsp">
+    <definition name="homepage.body" extends="default" template="/WEB-INF/layouts/home-body.jsp">
         <put-attribute name="slides" value="/WEB-INF/views/home/slides.jsp" />
         <put-attribute name="touts" value="/WEB-INF/views/home/touts.jsp" />
     </definition>
 
-    <definition name="login.body" template="/WEB-INF/layouts/login-body.jsp">
+    <definition name="login.body" extends="default" template="/WEB-INF/layouts/login-body.jsp">
         <put-attribute name="body" value="/WEB-INF/views/login/body.jsp" />
     </definition>
 

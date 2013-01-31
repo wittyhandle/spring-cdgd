@@ -11,15 +11,22 @@
         <tilesx:useAttribute name="addBootstrap" />
         <c:if test="${addBootstrap == 'true'}">
             <link href="<c:url value="/bootstrap/css/bootstrap.css" />" rel="stylesheet" type="text/css" />
+            <link href="<c:url value="/bootstrap/css/bootstrap-layout.css" />" rel="stylesheet" type="text/css" />
             <link href="<c:url value="/bootstrap/css/bootstrap-responsive.css" />" rel="stylesheet" type="text/css" />
         </c:if>
-        <link href="<c:url value="/css/styles.css" />" rel="stylesheet" type="text/css" />
+
+        <tilesx:useAttribute name="css" />
+        <link href="<c:url value="${css}" />" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
+        <tiles:insertAttribute name="head" ignore="true" />
         <tiles:insertAttribute name="body" ignore="true" />
 
-        <script src="<c:url value="/js/jquery-1.9.0.min.js" />"></script>
+        <tilesx:useAttribute name="jquery" />
+        <script src="<c:url value="${jquery}" />"></script>
+
+        <tiles:insertAttribute name="scriptblock" ignore="true" />
     </body>
 
 </html>
