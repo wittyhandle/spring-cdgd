@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * The controller for management of projects within the admin space.
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Time: 6:02 PM
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/project")
 public class AdminProjectController extends BaseAdminController
 {
     private static final Logger log = LoggerFactory.getLogger(AdminProjectController.class);
 
-    @RequestMapping("home")
+    @RequestMapping(method = RequestMethod.GET)
     public String listProjects()
     {
         log.debug("Not much in here for now.");
@@ -26,5 +27,11 @@ public class AdminProjectController extends BaseAdminController
         return "admin";
     }
 
+
+    @RequestMapping("new")
+    public String newProject()
+    {
+        return "project.new";
+    }
 
 }
