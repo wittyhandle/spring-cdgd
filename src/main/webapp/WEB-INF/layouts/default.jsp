@@ -20,7 +20,7 @@
     </head>
 
     <body>
-        <tiles:insertAttribute name="head" />
+        <tiles:insertAttribute name="head" ignore="true" />
         <tiles:insertAttribute name="body" ignore="true" />
 
         <tilesx:useAttribute name="jquery" />
