@@ -21,8 +21,9 @@ public class BaseAdminController
     private static final Logger log = LoggerFactory.getLogger(BaseAdminController.class);
 
     /**
-     * Have spring call for the username and store is as a model attribute. Spring will also pass in the current
-     * Principal object from which the username is determined.
+     * Have spring call for the username and store is as a model attribute. This is done automatically because of the
+     * @ModelAttribute annotation. Spring will also pass in the current Principal object from which the username is
+     * determined.
      *
      * @param principal contains the current username
      * @return the current username

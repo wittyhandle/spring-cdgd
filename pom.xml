@@ -254,6 +254,7 @@
                         <configuration>
                             <excludes>
                                 <exclude>none</exclude>
+                                <exclude>**/BaseIntegrationTest.java</exclude>
                             </excludes>
                             <includes>
                                 <include>**/*IntegrationTest.java</include>
