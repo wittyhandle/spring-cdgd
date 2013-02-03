@@ -26,8 +26,8 @@
         <scp.port>2222</scp.port>
         <scp.dirCopyTo>/var/www/cdgd</scp.dirCopyTo>
         <maven.tomcat.update>true</maven.tomcat.update>
-        <cobertua.branchRate>100</cobertua.branchRate>
-        <cobertua.lineRate>85</cobertua.lineRate>
+        <cobertura.branchRate>100</cobertura.branchRate>
+        <cobertura.lineRate>85</cobertura.lineRate>
     </properties>
     <repositories>
         <repository>
@@ -281,13 +281,13 @@
                             </instrumentation>
                             <skip>${maven.test.skip}</skip>
                             <check>
-                                <branchRate>${cobertua.branchRate}</branchRate>
-                                <lineRate>${cobertua.lineRate}</lineRate>
+                                <branchRate>${cobertura.branchRate}</branchRate>
+                                <lineRate>${cobertura.lineRate}</lineRate>
                                 <haltOnFailure>true</haltOnFailure>
-                                <totalBranchRate>${cobertua.branchRate}</totalBranchRate>
-                                <totalLineRate>${cobertua.lineRate}</totalLineRate>
-                                <packageLineRate>${cobertua.lineRate}</packageLineRate>
-                                <packageBranchRate>${cobertua.branchRate}</packageBranchRate>
+                                <totalBranchRate>${cobertura.branchRate}</totalBranchRate>
+                                <totalLineRate>${cobertura.lineRate}</totalLineRate>
+                                <packageLineRate>${cobertura.lineRate}</packageLineRate>
+                                <packageBranchRate>${cobertura.branchRate}</packageBranchRate>
                             </check>
                         </configuration>
                         <executions>
@@ -373,13 +373,13 @@
                     </instrumentation>
                     <skip>${maven.test.skip}</skip>
                     <check>
-                        <branchRate>${cobertua.branchRate}</branchRate>
-                        <lineRate>${cobertua.lineRate}</lineRate>
+                        <branchRate>${cobertura.branchRate}</branchRate>
+                        <lineRate>${cobertura.lineRate}</lineRate>
                         <haltOnFailure>true</haltOnFailure>
-                        <totalBranchRate>${cobertua.branchRate}</totalBranchRate>
-                        <totalLineRate>${cobertua.lineRate}</totalLineRate>
-                        <packageLineRate>${cobertua.lineRate}</packageLineRate>
-                        <packageBranchRate>${cobertua.branchRate}</packageBranchRate>
+                        <totalBranchRate>${cobertura.branchRate}</totalBranchRate>
+                        <totalLineRate>${cobertura.lineRate}</totalLineRate>
+                        <packageLineRate>${cobertura.lineRate}</packageLineRate>
+                        <packageBranchRate>${cobertura.branchRate}</packageBranchRate>
                     </check>
                 </configuration>
                 <executions>
