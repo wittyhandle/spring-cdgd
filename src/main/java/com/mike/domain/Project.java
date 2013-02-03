@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Entity
 @Table(name = "works")
 @NamedQueries({
-        @NamedQuery(name = Work.FIND_BY_ID, query = "select w from Work w where w.id = :id"),
-        @NamedQuery(name = Work.FIND_BY_NAME, query = "select w from Work w where w.name = :name")
+        @NamedQuery(name = Project.FIND_BY_ID, query = "select p from Project p where p.id = :id"),
+        @NamedQuery(name = Project.FIND_BY_NAME, query = "select p from Project p where p.name = :name")
 })
-public class Work
+public class Project
 {
     public static final String FIND_BY_ID = "work.findById";
     public static final String FIND_BY_NAME = "work.findByName";
@@ -70,17 +70,17 @@ public class Work
             return false;
         }
 
-        Work work = (Work) o;
+        Project project = (Project) o;
 
-        if (description != null ? !description.equals(work.description) : work.description != null)
+        if (description != null ? !description.equals(project.description) : project.description != null)
         {
             return false;
         }
-        if (id != null ? !id.equals(work.id) : work.id != null)
+        if (id != null ? !id.equals(project.id) : project.id != null)
         {
             return false;
         }
-        if (name != null ? !name.equals(work.name) : work.name != null)
+        if (name != null ? !name.equals(project.name) : project.name != null)
         {
             return false;
         }
@@ -100,7 +100,7 @@ public class Work
     @Override
     public String toString()
     {
-        return "Work{" +
+        return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

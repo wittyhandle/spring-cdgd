@@ -1,6 +1,6 @@
 package com.mike.dao;
 
-import com.mike.domain.Work;
+import com.mike.domain.Project;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,17 +22,17 @@ public class WorkDaoIntegrationTest extends BaseIntegrationTest
     @Before
     public void setUp() throws Exception
     {
-        Work testWork = new Work();
-        testWork.setName("Foo Name");
-        testWork.setDescription("This is the test description");
+        Project testProject = new Project();
+        testProject.setName("Foo Name");
+        testProject.setDescription("This is the test description");
 
-        workDao.persist(testWork);
+        workDao.persist(testProject);
     }
 
     @Test
     public void testFindWorkByName() throws Exception
     {
-        Work work = workDao.findWorkByName("Foo Name");
-        assertNotNull(work);
+        Project project = workDao.findWorkByName("Foo Name");
+        assertNotNull(project);
     }
 }

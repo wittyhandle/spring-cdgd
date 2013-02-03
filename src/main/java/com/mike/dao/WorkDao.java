@@ -1,6 +1,6 @@
 package com.mike.dao;
 
-import com.mike.domain.Work;
+import com.mike.domain.Project;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -26,47 +26,47 @@ public class WorkDao
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Work findWorkByName(String name)
+    public Project findWorkByName(String name)
     {
-        Work work;
+        Project project;
 
         try
         {
-            work = entityManager.createNamedQuery(Work.FIND_BY_NAME, Work.class)
+            project = entityManager.createNamedQuery(Project.FIND_BY_NAME, Project.class)
                     .setParameter("name", name)
                     .getSingleResult();
         }
         catch (NoResultException nre)
         {
-            work = null;
+            project = null;
         }
 
-        return work;
+        return project;
     }
 
 
-    public Work findWorkById(long id)
+    public Project findWorkById(long id)
     {
-        Work work;
+        Project project;
 
         try
         {
-            work = entityManager.createNamedQuery(Work.FIND_BY_ID, Work.class)
+            project = entityManager.createNamedQuery(Project.FIND_BY_ID, Project.class)
                     .setParameter("id", id)
                     .getSingleResult();
         }
         catch (NoResultException nre)
         {
-            work = null;
+            project = null;
         }
 
-        return work;
+        return project;
     }
 
-    public void persist(Work work)
+    public void persist(Project project)
     {
-        log.debug("Persisting the work: {}", work);
+        log.debug("Persisting the project: {}", project);
 
-        entityManager.persist(work);
+        entityManager.persist(project);
     }
 }

@@ -1,6 +1,6 @@
 package com.mike.controller;
 
-import com.mike.domain.Work;
+import com.mike.domain.Project;
 import org.junit.Test;
 import org.springframework.ui.ModelMap;
 
@@ -28,12 +28,12 @@ public class AdminProjectControllerTest
     @Test
     public void testNewProjectForm() throws Exception
     {
-        Work emptyWork = new Work();
+        Project emptyProject = new Project();
 
         ModelMap modelMap = new ModelMap();
         String result = adminProjectController.newProjectForm(modelMap);
 
-        assertEquals(emptyWork, modelMap.get("project"));
+        assertEquals(emptyProject, modelMap.get("project"));
         assertEquals("project.new", result);
     }
 }

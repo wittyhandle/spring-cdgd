@@ -1,6 +1,6 @@
 package com.mike.controller;
 
-import com.mike.domain.Work;
+import com.mike.domain.Project;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,16 +36,16 @@ public class AdminProjectController extends BaseAdminController
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newProjectForm(ModelMap model)
     {
-        log.debug("Returning a new instance of the Work pojo to the form");
+        log.debug("Returning a new instance of the Project pojo to the form");
 
-        model.put("project", new Work());
+        model.put("project", new Project());
         return "project.new";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String newProject(@ModelAttribute("project") Work work, BindingResult result, HttpServletRequest request)
+    public String newProject(@ModelAttribute("project") Project project, BindingResult result, HttpServletRequest request)
     {
-        log.debug("The following form as been posted {}", work);
+        log.debug("The following form as been posted {}", project);
 
         log.debug("The name request parameter is {}", request.getParameter("name"));
 
