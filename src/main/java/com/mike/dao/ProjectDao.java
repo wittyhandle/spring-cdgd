@@ -19,9 +19,9 @@ import javax.persistence.PersistenceContext;
  */
 @Repository
 @Service
-public class WorkDao
+public class ProjectDao
 {
-    private static final Logger log = LoggerFactory.getLogger(WorkDao.class);
+    private static final Logger log = LoggerFactory.getLogger(ProjectDao.class);
 
     @PersistenceContext
     private EntityManager entityManager;

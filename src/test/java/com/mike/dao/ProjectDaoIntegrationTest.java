@@ -14,10 +14,10 @@ import static org.junit.Assert.assertNotNull;
  * Date: 2/2/13
  * Time: 8:38 AM
  */
-public class WorkDaoIntegrationTest extends BaseIntegrationTest
+public class ProjectDaoIntegrationTest extends BaseIntegrationTest
 {
     @Autowired
-    private WorkDao workDao;
+    private ProjectDao projectDao;
 
     @Before
     public void setUp() throws Exception
@@ -26,13 +26,13 @@ public class WorkDaoIntegrationTest extends BaseIntegrationTest
         testProject.setName("Foo Name");
         testProject.setDescription("This is the test description");
 
-        workDao.persist(testProject);
+        projectDao.persist(testProject);
     }
 
     @Test
     public void testFindWorkByName() throws Exception
     {
-        Project project = workDao.findWorkByName("Foo Name");
+        Project project = projectDao.findWorkByName("Foo Name");
         assertNotNull(project);
     }
 }

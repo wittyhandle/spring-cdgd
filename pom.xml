@@ -26,8 +26,8 @@
         <scp.port>2222</scp.port>
         <scp.dirCopyTo>/var/www/cdgd</scp.dirCopyTo>
         <maven.tomcat.update>true</maven.tomcat.update>
-        <cobertura.branchRate>100</cobertura.branchRate>
-        <cobertura.lineRate>85</cobertura.lineRate>
+        <cobertura.branchRate>30</cobertura.branchRate>
+        <cobertura.lineRate>25</cobertura.lineRate>
     </properties>
     <repositories>
         <repository>
