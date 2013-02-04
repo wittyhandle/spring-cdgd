@@ -3,6 +3,8 @@ package com.mike.controller;
 import com.mike.domain.Project;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 /**
  * The controller for management of projects within the admin space.
@@ -43,11 +46,12 @@ public class AdminProjectController extends BaseAdminController
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String newProject(@ModelAttribute("project") Project project, BindingResult result, HttpServletRequest request)
+    public String newProject(@Valid @ModelAttribute("project") Project project, BindingResult result,
+                             HttpServletRequest request)
     {
         log.debug("The following form as been posted {}", project);
 
-        log.debug("The name request parameter is {}", request.getParameter("name"));
+        //String message = messageSource.getMessage(result.getFieldError("name").getCode(), );
 
         return "project.new";
     }

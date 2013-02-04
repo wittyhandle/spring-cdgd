@@ -1,5 +1,7 @@
 package com.mike.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 /**
@@ -24,6 +26,7 @@ public class Project
     @GeneratedValue
     private Long id;
 
+    @NotEmpty(message = "notempty.project.name")
     private String name;
 
     private String description;

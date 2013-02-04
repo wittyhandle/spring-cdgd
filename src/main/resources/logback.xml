@@ -16,6 +16,7 @@
     </root>
 
     <logger name="com.mike" level="ALL" />
-    <logger name="com.tacitknowledge" level="ALL" />
+    <logger name="org.hibernate.validator" level="TRACE" />
+    <logger name="org.springframework.security" level="ERROR" />
 
 </configuration>
