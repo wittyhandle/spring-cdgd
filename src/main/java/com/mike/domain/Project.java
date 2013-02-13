@@ -26,7 +26,7 @@ public class Project
     @GeneratedValue
     private Long id;
 
-    @NotEmpty(message = "notempty.project.name")
+    @NotEmpty(message = "{project.name.empty}")
     private String name;
 
     private String description;
