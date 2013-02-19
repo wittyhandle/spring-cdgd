@@ -29,6 +29,7 @@ public class Project
     @NotEmpty(message = "{project.name.empty}")
     private String name;
 
+    @NotEmpty(message = "{project.description.empty}")
     private String description;
 
     public Long getId()

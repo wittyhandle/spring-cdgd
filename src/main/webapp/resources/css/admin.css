@@ -2,3 +2,18 @@
     margin-top: 18px;
 }
 
+.cdgd-admin .alert {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 10px;
+    width: 233px;
+}
+
+.cdgd-admin .form-horizontal .control-label {
+    text-align: left;
+}
+
+.cdgd-admin .form-horizontal .controls {
+    margin-left: 0;
+}
+
