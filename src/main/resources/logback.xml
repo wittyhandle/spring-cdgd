@@ -11,12 +11,12 @@
     </appender>
 
     <jmxConfigurator />
-    <root level="DEBUG">
+    <root>
         <appender-ref ref="STDOUT" />
     </root>
 
     <logger name="com.mike" level="ALL" />
-    <logger name="org.hibernate.validator" level="TRACE" />
-    <logger name="org.springframework" level="DEBUG" />
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.apache.tiles" level="ERROR" />
 
 </configuration>

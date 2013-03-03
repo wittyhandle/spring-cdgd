@@ -51,9 +51,12 @@ public class AdminProjectController extends BaseAdminController
     {
         log.debug("The following form as been posted {}", project);
 
-        //String message = messageSource.getMessage(result.getFieldError("name").getCode(), );
+        if (result.hasErrors())
+        {
+            return "project.new";
+        }
 
-        return "project.new";
+        return "admin";
     }
 
 }

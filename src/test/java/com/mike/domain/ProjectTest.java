@@ -24,6 +24,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import javax.sql.DataSource;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -48,14 +51,13 @@ public class ProjectTest
     {
         Project project = new Project();
 
-        System.out.println("Use validator " + validator.hashCode());
-
         Set<ConstraintViolation<Project>> errors = validator.validate(project);
-        assertEquals(1, errors.size());
-        for (ConstraintViolation<Project> error : errors)
-        {
-            System.out.println("error = " + error.getMessage());
-        }
+        assertEquals(2, errors.size());
+
+        Map<String, String> errorsByCode = convertConstraintsToHash(errors);
+
+        assertEquals("Please enter a project name.", errorsByCode.get("{project.name.empty}"));
+        assertEquals("Please enter a project description.", errorsByCode.get("{project.description.empty}"));
     }
 
     @Configuration
@@ -76,9 +78,22 @@ public class ProjectTest
             LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
             localValidatorFactoryBean.setValidationMessageSource(configureMessageSource());
 
-            System.out.println("return " + localValidatorFactoryBean.hashCode());
-
             return localValidatorFactoryBean;
         }
     }
+
+    private Map<String, String> convertConstraintsToHash(Set<ConstraintViolation<Project>> errors)
+    {
+        Iterator<ConstraintViolation<Project>> errorItr = errors.iterator();
+        Map<String, String> errorsByCode = new HashMap<String, String>();
+
+        while (errorItr.hasNext())
+        {
+            ConstraintViolation<Project> error = errorItr.next();
+            errorsByCode.put(error.getMessageTemplate(), error.getMessage());
+        }
+
+        return errorsByCode;
+    }
+
 }

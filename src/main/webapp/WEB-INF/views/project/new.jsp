@@ -11,7 +11,7 @@
             </span>
         </div>
         <div class="row-fluid">
-            <form:form class="form-horizontal span5" commandName="project" action="new">
+            <form:form class="form-horizontal span5" commandName="project" action="new" method="post">
                 <div class="control-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls pull-right">
