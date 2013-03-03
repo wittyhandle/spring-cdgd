@@ -1,10 +1,11 @@
 package com.mike.controller;
 
+import com.mike.dao.ProjectDao;
 import com.mike.domain.Project;
+import com.mike.service.ProjectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,12 +27,15 @@ import javax.validation.Valid;
 @RequestMapping("/admin/project")
 public class AdminProjectController extends BaseAdminController
 {
-    private static final Logger log = LoggerFactory.getLogger(AdminProjectController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AdminProjectController.class);
+
+    @Autowired
+    private ProjectService projectService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String listProjects()
     {
-        log.debug("Not much in here for now.");
+        LOG.debug("Not much in here for now.");
 
         return "admin";
     }
@@ -39,22 +43,24 @@ public class AdminProjectController extends BaseAdminController
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newProjectForm(ModelMap model)
     {
-        log.debug("Returning a new instance of the Project pojo to the form");
+        LOG.debug("Returning a new instance of the Project pojo to the form");
 
         model.put("project", new Project());
         return "project.new";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String newProject(@Valid @ModelAttribute("project") Project project, BindingResult result,
-                             HttpServletRequest request)
+    public String newProject(@Valid @ModelAttribute("project") Project project, BindingResult result)
     {
-        log.debug("The following form as been posted {}", project);
+        LOG.debug("The following form as been posted {}", project);
 
         if (result.hasErrors())
         {
+            LOG.error("The project was posted with validation errors, return user to new project view");
             return "project.new";
         }
+
+        projectService.saveProject(project);
 
         return "admin";
     }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController
 {
-    private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(IndexController.class);
 
     @RequestMapping("/")
     public String test(HttpServletRequest request)
