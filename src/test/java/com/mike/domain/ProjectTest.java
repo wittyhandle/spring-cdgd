@@ -30,6 +30,8 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -45,6 +47,26 @@ public class ProjectTest
 {
     @Autowired
     private Validator validator;
+
+    @Test
+    public void testEquality() throws Exception
+    {
+        Project one = new Project();
+        one.setId(100l);
+        one.setName("One");
+        one.setDescription("One Description");
+
+        Project two = new Project();
+        two.setId(100l);
+        two.setName("One");
+        two.setDescription("One Description");
+
+        assertTrue(one.equals(two));
+
+        assertFalse(one.equals(new Project()));
+        assertFalse(one.equals(null));
+        assertFalse(one.equals(new String()));
+    }
 
     @Test
     public void testValidation() throws Exception

@@ -1,5 +1,6 @@
 package com.mike.domain;
 
+import com.google.common.base.Objects;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -65,40 +66,26 @@ public class Project
     @Override
     public boolean equals(Object o)
     {
-        if (this == o)
-        {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass())
+        if (o == null)
         {
             return false;
         }
 
-        Project project = (Project) o;
-
-        if (description != null ? !description.equals(project.description) : project.description != null)
-        {
-            return false;
-        }
-        if (id != null ? !id.equals(project.id) : project.id != null)
-        {
-            return false;
-        }
-        if (name != null ? !name.equals(project.name) : project.name != null)
+        if (getClass() != o.getClass())
         {
             return false;
         }
 
-        return true;
+        final Project otherProject = (Project) o;
+
+        return  Objects.equal(this.name, otherProject.name) &&
+                Objects.equal(this.description, otherProject.description);
     }
 
     @Override
     public int hashCode()
     {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+        return Objects.hashCode(this.name, this.description);
     }
 
     @Override
