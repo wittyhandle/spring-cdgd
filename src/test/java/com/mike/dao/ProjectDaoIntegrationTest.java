@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -33,6 +34,6 @@ public class ProjectDaoIntegrationTest extends BaseIntegrationTest
     public void testFindWorkByName() throws Exception
     {
         Project project = projectDao.findWorkByName("Foo Name");
-        assertNotNull(project);
+        assertEquals("This is the test description", project.getDescription());
     }
 }
