@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class PersonServiceImpl implements ProjectService
+public class ProjectServiceImpl implements ProjectService
 {
     @Autowired
     private ProjectDao projectDao;

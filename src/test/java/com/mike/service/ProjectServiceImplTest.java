@@ -18,10 +18,10 @@ import static org.mockito.Mockito.verify;
  * Time: 8:18 PM
  */
 @RunWith(MockitoJUnitRunner.class)
-public class PersonServiceImplTest
+public class ProjectServiceImplTest
 {
     @InjectMocks
-    private PersonServiceImpl personService = new PersonServiceImpl();
+    private ProjectServiceImpl personService = new ProjectServiceImpl();
 
     @Mock
     private ProjectDao projectDao;
