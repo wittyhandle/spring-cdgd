@@ -18,5 +18,6 @@
     <logger name="com.mike" level="ALL" />
     <logger name="org.springframework" level="ERROR" />
     <logger name="org.apache.tiles" level="ERROR" />
+    <logger name="org.apache.commons" level="ERROR" />
 
 </configuration>
