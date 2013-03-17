@@ -37,7 +37,7 @@ public class AdminProjectControllerTest
     {
         String result = adminProjectController.listProjects();
 
-        assertEquals("admiin", result);
+        assertEquals("admin", result);
     }
 
     @Test
