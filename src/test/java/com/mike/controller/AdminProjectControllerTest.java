@@ -36,9 +36,7 @@ public class AdminProjectControllerTest
     public void testListProjects() throws Exception
     {
         String result = adminProjectController.listProjects();
-
-        assertEquals("admin", result);
-        //
+        assertEquals("admiin", result);
     }
 
     @Test
